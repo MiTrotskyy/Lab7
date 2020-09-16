@@ -39,8 +39,11 @@ public class Main {
             try {
                 System.out.println("Enter server port");
                 int port = Integer.parseInt(bufferedReader.readLine().trim());
+                ClientInfo.setPort(port);
                 System.out.println("Enter hostname");
-                InetAddress inetAddress = InetAddress.getByName(bufferedReader.readLine().trim());
+                String host =bufferedReader.readLine().trim();
+                InetAddress inetAddress = InetAddress.getByName(host);
+                ClientInfo.setHost(host);
                 ClientSide.run();
             }catch (NumberFormatException e){
                 System.out.println("Invalid port");
