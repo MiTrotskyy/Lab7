@@ -141,8 +141,8 @@ public class ServerSide {
         }
         serverSocket.close();
     }
-    public static void runServer() throws SocketException {
-        ServerSide serverSide = new ServerSide(8000);
+    public static void runServer(int port) throws SocketException {
+        ServerSide serverSide = new ServerSide(port);
         LOGGER.log(Level.INFO, "Server object created");
         serverSide.run();
     }
