@@ -20,8 +20,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class DataBaseController {
     private static ReadWriteLock lock = new ReentrantReadWriteLock();
     public static final String DATA_BASE_URL = "jdbc:postgresql://pg:5432/studs";
-    public static final String USER = "s286556";
-    public static final String PASSWORD = "gzc483";
+    public static final String USER = "*****";
+    public static final String PASSWORD = "*****";
     public static int maxKey = 0;
     public static void createTable() {
         try {

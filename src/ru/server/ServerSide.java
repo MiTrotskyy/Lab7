@@ -147,7 +147,7 @@ public class ServerSide {
         serverSide.run();
     }
 
-//    public static void main(String[] args) throws SocketException {
-//        runServer();
-//    }
+    public static void main(String[] args) throws SocketException {
+        runServer();
+    }
 }
