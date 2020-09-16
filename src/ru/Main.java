@@ -26,7 +26,7 @@ public class Main {
             try {
                 int port = Integer.parseInt(bufferedReader.readLine().trim());
 //              Запуск сервера с указанным портом
-                ServerSide.runServer();
+                ServerSide.runServer(port);
             } catch (NumberFormatException e) {
                 System.out.println("Invalid port");
                 System.exit(0);
