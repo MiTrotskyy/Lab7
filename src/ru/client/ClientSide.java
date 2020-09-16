@@ -124,9 +124,10 @@ public class ClientSide {
             line = bufferedReader.readLine();
             if (!line.isEmpty()) {
                 CLIENT_COMMAND_DATA.setCommand(line);
-                Command command = CLIENT_COMMAND_DATA.getCommand();
+                if (CLIENT_COMMAND_DATA.getCommand() != null){
+                    Command command = CLIENT_COMMAND_DATA.getCommand();
                 command.setUser(user);
-                if (CLIENT_COMMAND_DATA.getCommand() != null && command.isValid()) {
+                if (command.isValid()) {
                     if (!command.getMessage().equals("script")) {
                         command = exchangeCommands(command);
                         System.out.println(command.getMessage());
@@ -134,6 +135,7 @@ public class ClientSide {
                             System.exit(0);
                         }
                     }
+                }
                 }
             }
         }

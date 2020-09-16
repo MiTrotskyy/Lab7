@@ -1,5 +1,6 @@
 package ru.commands;
 
+import ru.general.human_being_controller.HumanBeing;
 import ru.general.human_being_controller.HumanBeingMap;
 import ru.general.human_being_controller.HumanBeingReader;
 
@@ -9,6 +10,7 @@ import ru.general.human_being_controller.HumanBeingReader;
 
 public class Update extends Command{
     private Long id;
+    private HumanBeing humanBeing;
     /**
      * Проверка что id - целое число, проверка на наличие элемента с данным id, затем вызов метода {@link HumanBeingMap#updateHumanBeing(Long, Integer, HumanBeing)}
      * @param humanBeingMap класс с коллекцией, над которой производятся действия
@@ -19,9 +21,8 @@ public class Update extends Command{
         if (key == null){
             setMessage("Element with this id doesn't exist. To get a list of elements use \"show\" command.");
         } else {
-            HumanBeingReader humanBeingReader = new HumanBeingReader();
-            humanBeingMap.updateHumanBeing(id, key, humanBeingReader.getHumanBeing());
-            setMessage("Element " + humanBeingReader.getHumanBeing().toString() + " updated");
+            humanBeingMap.updateHumanBeing(id, key, humanBeing);
+            setMessage("Element " + humanBeing.toString() + " updated");
         }
     }
 
@@ -29,6 +30,8 @@ public class Update extends Command{
     public boolean isValid() {
         try{
             id = Long.parseLong(getValue());
+            HumanBeingReader humanBeingReader = new HumanBeingReader();
+            humanBeing = humanBeingReader.getHumanBeing();
             return true;
         }catch (NumberFormatException e){
             System.out.println("Id must be a positive number");
